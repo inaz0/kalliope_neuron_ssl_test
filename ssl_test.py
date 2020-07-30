@@ -35,7 +35,7 @@ class Ssl_test(NeuronModule):
         
         self.say(self.message)
         
-    def checkIfTestIsFinish():
+    def checkIfTestIsFinish(self):
 
         r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=')
 
