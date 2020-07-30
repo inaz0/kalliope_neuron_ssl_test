@@ -1,0 +1,7 @@
+  - name: "ssl-labs-test"
+    signals:
+      - order: "Lance un test SSL pour le domaine {{ domain }}"
+    neurons:
+      - ssl_test:
+          query: "{{ domain }}"
+          file_template: "/home/pi/kalliope/kalliope/template/ssl_test.j2"
