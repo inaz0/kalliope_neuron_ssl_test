@@ -22,16 +22,22 @@ class Ssl_test(NeuronModule):
         
         isFinish = False
 
-        while isFinish == False:
-          time.sleep(0.2)
-          isFinish = self.checkIfTestIsFinish()
-        
-        self.message = {
-        "summary": "is finish",
-        "returncode": 200
-        }
-        
-        self.say(self.message)
+        if r.status_code != 200:
+            self.message = {
+            "summary": "Le test est terminé",
+            "returncode": 500
+            }   
+        else:
+            while isFinish == False:
+              time.sleep(0.4)
+              isFinish = self.checkIfTestIsFinish()
+            
+            self.message = {
+            "summary": "Le test est terminé",
+            "returncode": 200
+            }
+            
+            self.say(self.message)
         
     def checkIfTestIsFinish(self):
 
