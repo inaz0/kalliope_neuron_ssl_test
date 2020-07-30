@@ -12,7 +12,7 @@ from kalliope.core.NeuronModule import NeuronModule, MissingParameterException
 from kalliope import Utils
 
 
-class SSLTest(NeuronModule):
+class Ssl_test(NeuronModule):
     def __init__(self, **kwargs):
         super(SSLTest, self).__init__(**kwargs)
         # Basic configuration
