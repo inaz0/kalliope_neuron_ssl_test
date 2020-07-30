@@ -17,7 +17,7 @@ class SSLTest(NeuronModule):
         super(SSLTest, self).__init__(**kwargs)
 		
         # Basic configuration
-        self.host = 'https://www.ssllabs.com/ssltest/analyze.html?d=test.com&hideResults=on&latest=')
+        self.host = 'https://www.ssllabs.com/ssltest/analyze.html?d=test.com&hideResults=on&latest='
         self.port = kwargs.get('port', 80)
         self.hideResults = kwargs.get('hideResults', 'on')
         self.password = kwargs.get('password', None)
