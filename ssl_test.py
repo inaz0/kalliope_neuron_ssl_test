@@ -42,11 +42,11 @@ class Ssl_test(NeuronModule):
         m = re.search('(\d*)%.complete', r.text)
 
         if m == None:
-        print("finish")
-        return True
+            print("finish")
+            return True
         else:
-        print(m.group(0))
-        return False
+            print(m.group(0))
+            return False
 
 
 
