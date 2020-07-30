@@ -1,0 +1,5 @@
+- name: kalliope SSL Test neuron install
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  become: true
