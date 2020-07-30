@@ -23,7 +23,7 @@ class Ssl_test(NeuronModule):
         isFinish = False
 
         while isFinish == False:
-		  time.sleep(0.2)
+          time.sleep(0.2)
           isFinish = self.checkIfTestIsFinish()
         
         self.message = {
