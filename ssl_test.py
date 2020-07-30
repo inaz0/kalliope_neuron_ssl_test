@@ -14,13 +14,12 @@ from kalliope import Utils
 
 class SSLTest(NeuronModule):
     def __init__(self, **kwargs):
-        super(SSLTest, self).__init__(**kwargs)
-		
-        # Basic configuration
-        self.host = 'https://www.ssllabs.com/ssltest/analyze.html?d=test.com&hideResults=on&latest='
-        self.port = kwargs.get('port', 80)
-        self.hideResults = kwargs.get('hideResults', 'on')
-        self.password = kwargs.get('password', None)
+		super(SSLTest, self).__init__(**kwargs)
+		# Basic configuration
+		self.host = 'https://www.ssllabs.com/ssltest/analyze.html?d=test.com&hideResults=on&latest='
+		self.port = kwargs.get('port', 80)
+		self.hideResults = kwargs.get('hideResults', 'on')
+		self.password = kwargs.get('password', None)
 		self.query = kwargs.get('query', None)
 		r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=')
 		self.returnCode = r.status_code
