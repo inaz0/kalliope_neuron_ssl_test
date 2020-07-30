@@ -26,7 +26,7 @@ class Ssl_test(NeuronModule):
         isFinish = False
 
         while isFinish == False:
-          isFinish = checkIfTestIsFinish()
+          isFinish = self.checkIfTestIsFinish()
         
         self.message = {
         "summary": m.group(0),
