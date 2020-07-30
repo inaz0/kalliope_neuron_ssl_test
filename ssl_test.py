@@ -18,19 +18,19 @@ class Ssl_test(NeuronModule):
         # Basic configuration
         self.query = kwargs.get('query', None)
         r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=')
-		
+        
         self.returnCode = r.status_code
-		
+        
         self.message = {
         "summary": "Le test est lancé !",
         "returncode": self.returnCode
         }
 
         self.say(self.message)
-		
-		m = re.search('Please wait..', r.text)
-		
-		self.message = {
+        
+        m = re.search('Please wait..', r.text)
+        
+        self.message = {
         "summary": m.group(0),
         "returncode": self.returnCode
         }
