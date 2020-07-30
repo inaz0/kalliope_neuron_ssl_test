@@ -26,7 +26,7 @@ class Ssl_test(NeuronModule):
         
         self.message = {
         "summary": "is finish",
-        "returncode": self.returnCode
+        "returncode": 200
         }
         
         self.say(self.message)
