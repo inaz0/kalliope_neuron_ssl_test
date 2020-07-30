@@ -21,12 +21,9 @@ class SSLTest(NeuronModule):
         self.port = kwargs.get('port', 80)
         self.hideResults = kwargs.get('hideResults', 'on')
         self.password = kwargs.get('password', None)
-
-		self.query = kwargs.get('domainSeek', None)
-
+		self.query = kwargs.get('query', None)
 		r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=')
 		self.returnCode = r.status_code
-
 		self.message = {
 		"summary": "Le test est lancé !",
 		"returncode": self.returnCode
