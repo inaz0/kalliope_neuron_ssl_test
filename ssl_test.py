@@ -14,7 +14,7 @@ from kalliope import Utils
 
 class Ssl_test(NeuronModule):
     def __init__(self, **kwargs):
-        super(SSLTest, self).__init__(**kwargs)
+        super(Ssl_test, self).__init__(**kwargs)
         # Basic configuration
         self.host = 'https://www.ssllabs.com/ssltest/analyze.html?d=test.com&hideResults=on&latest='
         self.port = kwargs.get('port', 80)
