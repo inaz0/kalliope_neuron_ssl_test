@@ -17,20 +17,36 @@ class Ssl_test(NeuronModule):
         super(Ssl_test, self).__init__(**kwargs)
         # Basic configuration
         self.query = kwargs.get('query', None)
-        r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=')
+        r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=&clearCache=on')
         
         self.returnCode = r.status_code
         
-        self.message = {
-        "summary": "Le test est lancé !",
-        "returncode": self.returnCode
-        }
+        m = re.search('(\d*)%.complete', r.text)
 
-        self.say(self.message)
-        
-        m = re.search('Please wait..', r.text)
+        isFinish = False
+
+        while isFinish == False:
+          isFinish = checkIfTestIsFinish()
         
         self.message = {
         "summary": m.group(0),
         "returncode": self.returnCode
         }
+        
+        self.say(self.message)
+        
+    def checkIfTestIsFinish():
+
+        r = requests.get('https://www.ssllabs.com/ssltest/analyze.html?d=' + self.query + '&hideResults=on&latest=')
+
+        m = re.search('(\d*)%.complete', r.text)
+
+        if m == None:
+        print("finish")
+        return True
+        else:
+        print(m.group(0))
+        return False
+
+
+
