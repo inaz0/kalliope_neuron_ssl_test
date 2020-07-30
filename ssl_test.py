@@ -5,6 +5,7 @@ import datetime
 import requests
 import urllib.request as urllib_request
 
+import time
 import urllib
 
 from time import sleep
@@ -22,6 +23,7 @@ class Ssl_test(NeuronModule):
         isFinish = False
 
         while isFinish == False:
+		  time.sleep(0.2)
           isFinish = self.checkIfTestIsFinish()
         
         self.message = {
